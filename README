@@ -1,0 +1,37 @@
+You will need the QT 3.x developer library built for multithreading support.
+To do this, download QT3 from Trolltech and configure it with
+./configure -thread
+Then start make and go for lots of coffees
+After QT is built, don't use make install, instead, export the directory
+of QT to $QTDIR
+ImageSpace has no real config script, instead it uses the qmake system.
+Therefore, qmake should reside inside your search tree.
+Also, $QMAKESPEC has to point to a file in the QT tree defining your
+system and compiler. On linux with the bash shell, this should be something
+like that:
+
+export QTDIR=/home/QT311
+export QMAKESPEC=$QTDIR/mkspecs/linux-g++
+export PATH=$QTDIR/bin:$PATH
+
+Now you should be able to configure ImageSpace by changing to it's directory
+and starting ./configure
+
+If everything works, a makefile should be generated now.
+Now start make, it will need only some seconds and imagespace is built.
+Don't mind the 'deprecated' warnings, i had no time to check the new
+C++ standard files.
+Copy it to a location in your path, or start it with
+./imagespace
+
+And remember: If something goes wrong, try to check your QT system first.
+It NEEDS to be built with multithreading support, and it needs to be a 3.x
+version.
+
+For any questions, mail me:
+
+ewald72@yahoo.com
+
+If you need to build it on QT/E, try the README file of my other project:
+sigmapi.sourceforge.net
+
