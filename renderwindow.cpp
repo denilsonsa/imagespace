@@ -23,13 +23,18 @@ renderwindow::~renderwindow() {
 }
 
 void renderwindow::closeEvent(QCloseEvent * e) {
+	if (timer.isActive()) timer.stop();
 	if (r!=NULL) {
 		if (r->running()) r->requestStop();
 		do {} while (r->running());
 		delete r;
 	}
+
 	if (t!=NULL) delete t;
+
+	qApp->lock();
 	emit(closed(this));
+	qApp->unlock();
 	e->accept();
 }
 

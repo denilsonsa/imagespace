@@ -1,0 +1,7 @@
+Version 0.2
+* Removed a bug which caused ImageSpace to prefer trees with gray background
+* Removed a bug in the multithreading system, causing a crash
+* Mutation guarantee: All offspring images have at least one mutation - this
+  avoids recalculations of the same genome, especially if the mutation rate
+  is very low
+* There should be less symmetry now

@@ -111,16 +111,17 @@ void control::selectGenome(int nr) {
 	if (nr!=4) g5->setPaletteBackgroundPixmap(*(rend[nr]->image()));			// Copy the selected pixmap to the central button
 	for (int i=0;i<9;++i) if (i!=nr) delete tree[i];					// Delete unselected trees
 	for (int i=0;i<9;++i) if (i!=nr) tree[i]=tree[nr]->copy();				// Clone the selected tree nine times
-	for (int i=0;i<9;++i) if (i!=4)								// Mutate all trees with the exception of the central tree
-		tree[i]->mutate(1.0,(double)decay->value()/100.0,maxSubnodes->value(),(double)mutation->value()/100.0);
+	for (int i=0;i<9;++i) if (i!=4) {							// Mutate all trees with the exception of the central tree
+		do { } while (tree[i]->mutate(1.0,(double)decay->value()/100.0,maxSubnodes->value(),(double)mutation->value()/100.0)==0);
+	}
 	selectedTree=tree[4];
 	startRenderers();									// Start all renderers
 	first=false;
 }
 
 void control::stopRenderers() {
+	for (int i=0;i<9;++i) rend[i]->requestStop();
 	for (int i=0;i<9;++i) {
-		rend[i]->requestStop();
 		t[i].stop();
 		do {} while (rend[i]->runs());
 	}

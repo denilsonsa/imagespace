@@ -33,7 +33,7 @@
         </size>
     </property>
     <property name="caption">
-        <string>ImageSpace 0.1</string>
+        <string>ImageSpace 0.2</string>
     </property>
     <vbox>
         <property name="name">

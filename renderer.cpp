@@ -27,10 +27,14 @@ void renderer::setPixel(unsigned int w, unsigned int h, D4 &clr) {
 			g=(unsigned char)(((clr[1]+1.0)/2.0)*255.0),
 			b=(unsigned char)(((clr[2]+1.0)/2.0)*255.0),
 			a=(unsigned char)(((clr[3]+1.0)/2.0)*255.0);
-	QRgb c=a; c=c<<8;
+	if (r>255) cout << "R " << r << endl;
+	if (g>255) cout << "G " << g << endl;
+	if (b>255) cout << "B " << b << endl;
+	QRgb c=qRgba(r,g,b,a);
+	/*=a; c=c<<8;
 	c|=r; c=c<<8;
 	c|=g; c=c<<8;
-	c|=b;
+	c|=b;*/
 	im.setPixel(w,h,c);
 }
 
