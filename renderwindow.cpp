@@ -3,17 +3,18 @@
 renderwindow::renderwindow(QWidget *parent, const char *name, WFlags f):renderwindow_base(parent,name,f) {
 	r=new renderer(this);
 	t=NULL;
-	
+
 	connect( r         ,SIGNAL(    done   ()),this,SLOT(    doneSlot   ()));
 	connect(&timer     ,SIGNAL( timeout   ()),this,SLOT(   timerSlot   ()));
 	connect( saveButton,SIGNAL( clicked   ()),this,SLOT(    saveSlot   ()));
-	
+
 	QBoxLayout *boxLayout=new QBoxLayout(displayFrame,QBoxLayout::Up);
 	boxLayout->setAutoAdd(true);
 
 	sv=new QScrollView(displayFrame);
-	w =new QWidget(sv);
+	w =new QLabel(sv);
 	sv->show();
+	
 	w ->resize(256,256);
 	sv->addChild(w);
 	w ->show();
@@ -49,12 +50,14 @@ void renderwindow::start() {
 	if (t!=NULL) {
 		r->setTree(t);
 		r->setResolution(w->width(),w->height());
+		if (alpha) w->setPaletteBackgroundPixmap(QImage(qembed_findData("alpha.png")));
+		      else w->setPaletteBackgroundColor(QColor(0,0,0));
 		r->start();
-		timer.start(1000);
+		timer.start(2000);
 	}
 }
 
-void renderwindow::doneSlot() { w->setPaletteBackgroundPixmap(*(r->image())); timer.stop(); }
+void renderwindow::doneSlot() { w->setPixmap(*(r->image())); timer.stop(); }
 
 void renderwindow::setResolution(int h, int v) {
 	stop();
@@ -75,14 +78,22 @@ void renderwindow::stop() {
 }
 
 void renderwindow::timerSlot() {
-	w->setPaletteBackgroundPixmap(*(r->image()));
-	if (!r->running()) timer.stop();
+	bool d;
+	timer.stop();
+	if (!r->running()) d=true; else d=false;
+	w->setPixmap(*(r->image()));
+	if (!d) timer.start(2000);
 }
 
 void renderwindow::saveSlot() {
 	QString s=QFileDialog::getSaveFileName("", "",this, "save file dialog","Choose a file" );
 	if (s!="") {
 		stop();
-		w->paletteBackgroundPixmap()->save(s,"PNG");
+		r->image()->save(s,"PNG");
 	}
+}
+
+void renderwindow::setAlpha(bool a) {
+	r->setAlpha(a);
+	alpha=a;
 }

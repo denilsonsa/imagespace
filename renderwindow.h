@@ -9,12 +9,12 @@
 #ifndef RENDERWINDOW_H
 #define RENDERWINDOW_H
 
-using namespace std;											// Standard namespace
-
 #include <stdlib.h>											// ANSI C   std. functions
 #include <stdio.h>											// ANSI C   i/o functions
 #include <iostream.h>											// ANSI C++ stream library
 #include <fstream.h>											// ANSI C++ File streams
+
+using namespace std;											// Standard namespace
 
 #include <renderwindow_base.h>
 
@@ -45,8 +45,10 @@ using namespace std;											// Standard namespace
 #include <qmenubar.h>
 #include <qtimer.h>
 #include <qcombobox.h>
+
 #include "operators.h"											// The syntax tree and vector declarations
 #include "renderer.h"											// The renderers create a QImage from a syntax tree
+#include "images.h"											// Embedded graphics
 
 class renderwindow : public renderwindow_base {
 
@@ -59,7 +61,7 @@ class renderwindow : public renderwindow_base {
 		void	copyTree	(treeNode*);
 		void	start		();
 		void	stop		();
-
+		void	setAlpha	(bool);
 		void	setResolution	(int,int);
 		void	setRange	(double,double,double,double);
 
@@ -70,11 +72,12 @@ class renderwindow : public renderwindow_base {
 		
 		void	closeEvent	(QCloseEvent *);
 		
-		renderer *r;
-		treeNode *t;
-		QScrollView *sv;
-		QWidget     *w;
-		QTimer       timer;
+		renderer	*r;
+		treeNode	*t;
+		QScrollView	*sv;
+		QLabel		*w;
+		QTimer		timer;
+		bool		alpha;
 	private slots:
 		
 		void	doneSlot	();

@@ -1,6 +1,5 @@
 // ---------------------------------------------------------------------------------
-// GENESIS 1.0
-// Copyright: SubSymbolics
+// ImageSpace
 // Mar-Jul 2003
 // ---------------------------------------------------------------------------------
 // The Control Object implements the user interface, inherited from QMainWindow
@@ -40,6 +39,7 @@ using namespace std;											// Standard namespace
 #include <qtimer.h>
 #include <qmenubar.h>
 
+#include "images.h"											// Embedded graphics
 #include "operators.h"											// The syntax tree and vector declarations
 #include "renderer.h"											// The renderers create a QImage from a syntax tree
 #include "renderwindow.h"
@@ -53,8 +53,8 @@ class control : public MainWindow {									// This is the MainWidget
 			~control	();								// Destructor
 
 	private slots:
-		void	fileSlot	(int);
-
+		void	loadSlot	();
+		void	saveSlot	();
 		void	checkDone	();
 		
 		void	g1Slot		();								// If a genome was selected, the buttons call these slots
@@ -66,7 +66,7 @@ class control : public MainWindow {									// This is the MainWidget
 		void	g7Slot		();
 		void	g8Slot		();
 		void	g9Slot		();
-		
+
 		void	rend1DoneSlot	();
 		void	rend2DoneSlot	();
 		void	rend3DoneSlot	();
@@ -94,11 +94,12 @@ class control : public MainWindow {									// This is the MainWidget
 
 		void	renderSlot	();								// Start a new main renderer
 		void	renderWindowClosed(renderwindow*);
+		void	alphaSlot	(bool);
 	private:
 	
 		void closeEvent			(QCloseEvent*);
 
-		void selectGenome		(int);							// Select genome #0..8
+		void selectGenome		(int nr, bool frst=false);				// Select genome #0..8
 		void startRenderers		();							// Start all renderers (if !first, the central renderer is not started)
 		void stopRenderers		();							// Stop all renderers
 

@@ -1,11 +1,13 @@
 #include "control.h"
 
 control::control(QWidget *parent, const char *name, WFlags fl):MainWindow(parent,name,fl) {
-
+	QImage bg=QImage(qembed_findData("alpha.png"));
+	
 	lastRenderWindow=NULL;
 
 	for (int i=0;i<9;++i) {
 		rend[i]=new renderer(this,0);
+		rend[i]->setAlpha(alpha->isChecked());
 		tree[i]=new treeNode(false,1.0,(double)decay->value()/100.0,maxSubnodes->value(),(double)mutation->value()/100.0);
 	}
 
@@ -25,15 +27,15 @@ control::control(QWidget *parent, const char *name, WFlags fl):MainWindow(parent
 	connect(&t[7],SIGNAL(timeout()),this,SLOT(t8Slot()));
 	connect(&t[8],SIGNAL(timeout()),this,SLOT(t9Slot()));
 
-	connect(g1,SIGNAL(clicked()),this,SLOT(g1Slot()));
-	connect(g2,SIGNAL(clicked()),this,SLOT(g2Slot()));
-	connect(g3,SIGNAL(clicked()),this,SLOT(g3Slot()));
-	connect(g4,SIGNAL(clicked()),this,SLOT(g4Slot()));
-	connect(g5,SIGNAL(clicked()),this,SLOT(g5Slot()));
-	connect(g6,SIGNAL(clicked()),this,SLOT(g6Slot()));
-	connect(g7,SIGNAL(clicked()),this,SLOT(g7Slot()));
-	connect(g8,SIGNAL(clicked()),this,SLOT(g8Slot()));
-	connect(g9,SIGNAL(clicked()),this,SLOT(g9Slot()));
+	connect(g1,SIGNAL(clicked()),this,SLOT(g1Slot())); g1->setPaletteBackgroundPixmap(bg);
+	connect(g2,SIGNAL(clicked()),this,SLOT(g2Slot())); g2->setPaletteBackgroundPixmap(bg);
+	connect(g3,SIGNAL(clicked()),this,SLOT(g3Slot())); g3->setPaletteBackgroundPixmap(bg);
+	connect(g4,SIGNAL(clicked()),this,SLOT(g4Slot())); g4->setPaletteBackgroundPixmap(bg);
+	connect(g5,SIGNAL(clicked()),this,SLOT(g5Slot())); g5->setPaletteBackgroundPixmap(bg);
+	connect(g6,SIGNAL(clicked()),this,SLOT(g6Slot())); g6->setPaletteBackgroundPixmap(bg);
+	connect(g7,SIGNAL(clicked()),this,SLOT(g7Slot())); g7->setPaletteBackgroundPixmap(bg);
+	connect(g8,SIGNAL(clicked()),this,SLOT(g8Slot())); g8->setPaletteBackgroundPixmap(bg);
+	connect(g9,SIGNAL(clicked()),this,SLOT(g9Slot())); g9->setPaletteBackgroundPixmap(bg);
 
 	connect(rend[0],SIGNAL(done()),this,SLOT(rend1DoneSlot()));
 	connect(rend[1],SIGNAL(done()),this,SLOT(rend2DoneSlot()));
@@ -46,6 +48,9 @@ control::control(QWidget *parent, const char *name, WFlags fl):MainWindow(parent
 	connect(rend[8],SIGNAL(done()),this,SLOT(rend9DoneSlot()));
 
 	connect(renderButton,SIGNAL(clicked()),this,SLOT(renderSlot()));
+	connect(  saveButton,SIGNAL(clicked()),this,SLOT(  saveSlot()));
+	connect(  loadButton,SIGNAL(clicked()),this,SLOT(  loadSlot()));
+	connect(       alpha,SIGNAL(toggled(bool)),this,SLOT(alphaSlot(bool)));
 	first=true;
 	startRenderers();
 }
@@ -57,6 +62,8 @@ control::~control() {
 	}
 }
 
+void control::alphaSlot(bool a) { first=true; }
+
 void control::renderSlot() {
 	if ((autoOpen->isChecked()) || (lastRenderWindow==NULL)) {
 		lastRenderWindow=new renderwindow(0);
@@ -66,18 +73,23 @@ void control::renderSlot() {
 	lastRenderWindow->setRange(x0->value(),x1->value(),y0->value(),y1->value());
 	lastRenderWindow->setResolution(hres->value(),vres->value());
 	lastRenderWindow->show();
+	lastRenderWindow->setAlpha(alpha->isChecked());
 	lastRenderWindow->start();
 }
 
-void control::fileSlot(int nr) {
-	QString s;
-	switch(nr) {
-		case 0: s=QFileDialog::getOpenFileName("", "",this, "open file dialog","Choose a file" );
-			break;
-		case 1: s=QFileDialog::getSaveFileName("", "",this, "save file dialog","Choose a file" );
-			break;
-		case 2: close();
-			break;
+void control::saveSlot() {
+	QString s=QFileDialog::getSaveFileName("", "",this, "save file dialog","Choose a filename" );
+	if (s!="") {
+		stopRenderers();
+		tree[4]->save(s.ascii());
+	}
+}
+void control::loadSlot() {
+	QString s=QFileDialog::getOpenFileName("", "",this, "open file dialog","Choose a file" );
+	if (s!="") {
+		stopRenderers();
+		tree[4]->load(s.ascii());
+		selectGenome(4,true);
 	}
 }
 
@@ -85,15 +97,15 @@ void control::closeEvent (QCloseEvent *e)  {
 	e->accept();
 }
 
-void control::g1Slot() { selectGenome(0); }							// Button click slots (genome selected)
-void control::g2Slot() { selectGenome(1); }
-void control::g3Slot() { selectGenome(2); }
-void control::g4Slot() { selectGenome(3); }
-void control::g5Slot() { selectGenome(4); }
-void control::g6Slot() { selectGenome(5); }
-void control::g7Slot() { selectGenome(6); }
-void control::g8Slot() { selectGenome(7); }
-void control::g9Slot() { selectGenome(8); }
+void control::g1Slot() { selectGenome(0,first); }						// Button click slots (genome selected)
+void control::g2Slot() { selectGenome(1,first); }
+void control::g3Slot() { selectGenome(2,first); }
+void control::g4Slot() { selectGenome(3,first); }
+void control::g5Slot() { selectGenome(4,first); }
+void control::g6Slot() { selectGenome(5,first); }
+void control::g7Slot() { selectGenome(6,first); }
+void control::g8Slot() { selectGenome(7,first); }
+void control::g9Slot() { selectGenome(8,first); }
 
 void control::rend1DoneSlot () { checkDone(); }
 void control::rend2DoneSlot () { checkDone(); }
@@ -105,10 +117,11 @@ void control::rend7DoneSlot () { checkDone(); }
 void control::rend8DoneSlot () { checkDone(); }
 void control::rend9DoneSlot () { checkDone(); }
 
-void control::selectGenome(int nr) {
+void control::selectGenome(int nr, bool frst) {							// Select a new genome
+	first=frst;
 	stopRenderers();									// Stop all renderers
 	selectedTree=tree[nr];
-	if (nr!=4) g5->setPaletteBackgroundPixmap(*(rend[nr]->image()));			// Copy the selected pixmap to the central button
+	if (nr!=4) g5->setPixmap(*(rend[nr]->image()));						// Copy the selected pixmap to the central button
 	for (int i=0;i<9;++i) if (i!=nr) delete tree[i];					// Delete unselected trees
 	for (int i=0;i<9;++i) if (i!=nr) tree[i]=tree[nr]->copy();				// Clone the selected tree nine times
 	for (int i=0;i<9;++i) if (i!=4) {							// Mutate all trees with the exception of the central tree
@@ -116,7 +129,6 @@ void control::selectGenome(int nr) {
 	}
 	selectedTree=tree[4];
 	startRenderers();									// Start all renderers
-	first=false;
 }
 
 void control::stopRenderers() {
@@ -131,6 +143,7 @@ void control::startRenderers() {
 	for (int i=0;i<9;++i) if ((i!=4) || (first)) {
 		rend[i]->setRange(x0->value(),x1->value(),y0->value(),y1->value());
 		rend[i]->setTree(tree[i]);							// Send the renderers their new trees
+		rend[i]->setAlpha(alpha->isChecked());
 		rend[i]->start();								// Start them
 		t[i].start(333);
 	}
@@ -139,16 +152,6 @@ void control::startRenderers() {
 void control::checkDone() {
 	int j=0;
 	for (int i=0;i<9;++i) if (!rend[i]->running()) ++j;
-	if (j==8) {
-		/*g1->setPaletteBackgroundPixmap(*(rend[0]->image()));
-		g2->setPaletteBackgroundPixmap(*(rend[1]->image()));
-		g3->setPaletteBackgroundPixmap(*(rend[2]->image()));
-		g4->setPaletteBackgroundPixmap(*(rend[3]->image()));
-		g6->setPaletteBackgroundPixmap(*(rend[5]->image()));
-		g7->setPaletteBackgroundPixmap(*(rend[6]->image()));
-		g8->setPaletteBackgroundPixmap(*(rend[7]->image()));
-		g9->setPaletteBackgroundPixmap(*(rend[8]->image()));*/
-	}
 }
 
 void control::x0Slot(int i) { if (x1->value()<=i) x1->setValue(i+1); first=true; }
@@ -160,41 +163,40 @@ void control::renderWindowClosed(renderwindow *ptr) {
 	if (ptr==lastRenderWindow) lastRenderWindow=NULL;
 }
 
-void control::t1Slot() {
-	if (!rend[0]->running()) t[0].stop();
-	g1->setPaletteBackgroundPixmap(*(rend[0]->image()));
+void control::t1Slot() {									// Timer slots to draw the images
+	if (!rend[0]->running()) t[0].stop();	
+	g1->setPixmap(*(rend[0]->image()));
 }
 void control::t2Slot() {
 	if (!rend[1]->running()) t[1].stop();
-	g2->setPaletteBackgroundPixmap(*(rend[1]->image()));
+	g2->setPixmap(*(rend[1]->image()));
 }
 void control::t3Slot() {
 	if (!rend[2]->running()) t[2].stop();
-	g3->setPaletteBackgroundPixmap(*(rend[2]->image()));
+	g3->setPixmap(*(rend[2]->image()));
 }
 void control::t4Slot() {
 	if (!rend[3]->running()) t[3].stop();
-	g4->setPaletteBackgroundPixmap(*(rend[3]->image()));
+	g4->setPixmap(*(rend[3]->image()));
 }
 void control::t5Slot() {
 	if (!rend[4]->running()) t[4].stop();
-	g5->setPaletteBackgroundPixmap(*(rend[4]->image()));
+	g5->setPixmap(*(rend[4]->image()));
 }
 void control::t6Slot() {
 	if (!rend[5]->running()) t[5].stop();
-	g6->setPaletteBackgroundPixmap(*(rend[5]->image()));
+	g6->setPixmap(*(rend[5]->image()));
 }
 void control::t7Slot() {
 	if (!rend[6]->running()) t[6].stop();
-	g7->setPaletteBackgroundPixmap(*(rend[6]->image()));
+	g7->setPixmap(*(rend[6]->image()));
 }
 void control::t8Slot() {
 	if (!rend[7]->running()) t[7].stop();
-	g8->setPaletteBackgroundPixmap(*(rend[7]->image()));
+	g8->setPixmap(*(rend[7]->image()));
 }
 void control::t9Slot() {
 	if (!rend[8]->running()) t[8].stop();
-	g9->setPaletteBackgroundPixmap(*(rend[8]->image()));
+	g9->setPixmap(*(rend[8]->image()));
 }
-
 

@@ -1,5 +1,5 @@
 SOURCES	+= main.cpp control.cpp display.cpp operators.cpp renderer.cpp renderwindow.cpp
-HEADERS	+= control.h display.h operators.h renderer.h renderwindow.h
+HEADERS	+= control.h display.h operators.h renderer.h renderwindow.h images.h
 
 unix {
   UI_DIR = .ui

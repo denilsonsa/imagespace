@@ -37,6 +37,11 @@ int treeNode::mutate(double prb, double dcy, int ord, double mprb) {
 	return(m);
 }
 
+void treeNode::clear() {
+	for (unsigned int i=0;i<subnode.size();++i) delete subnode[i];
+	subnode.clear();
+}
+
 int treeNode::createSubnodes() {
 	unsigned int nrOfSubnodes=random()%(order+1);
 	if (subnode.size()<nrOfSubnodes) do {
@@ -118,3 +123,41 @@ treeNode* treeNode::copy() {
 		for (unsigned int i=0;i<subnode.size();++i) t->subnode.insert(t->subnode.end(),subnode[i]->copy());
 	return(t);
 }
+
+bool treeNode::save(const char *filename) {
+	ofstream ofs(filename,ios::out);
+	if (ofs) {
+		save(ofs);
+		ofs.close();
+		return(true);
+	}
+	return(false);
+}
+
+bool treeNode::load(const char *filename) {
+	ifstream ifs(filename,ios::in);
+	if (ifs) {
+		clear();
+		load(ifs);
+		ifs.close();
+		return(true);
+	}
+	return(false);
+}
+
+void treeNode::load(ifstream &ifs) {
+	int subnodes;
+	ifs >> subnodes;
+	ifs >> scalar;
+	ifs >> opType;
+	for (unsigned int i=0;i<subnodes;++i) {
+		subnode.insert(subnode.end(),new treeNode(true,0,0,0,0));
+		subnode[i]->load(ifs);
+	}
+}
+
+void treeNode::save(ofstream &ofs) {
+	ofs << subnode.size() << " " << scalar << " " << opType << endl;
+	for (unsigned int i=0;i<subnode.size();++i) subnode[i]->save(ofs);
+}
+

@@ -35,6 +35,7 @@ class renderer : public QObject, public QThread {				// Renderer object
 		bool		 runs		();
 	virtual void		 run		();
 		void		 requestStop	();
+		void		 setAlpha	(bool);
 		QImage*		 image		();
 
 	signals:		
@@ -45,7 +46,7 @@ class renderer : public QObject, public QThread {				// Renderer object
 		QImage		 im;
 		treeNode	*tn;
 		double		 x0,y0,x1,y1;
-		bool		 stop_flag, runs_flag;
+		bool		 stop_flag, runs_flag, alpha;
 		QMutex		 mutex;
 
 };

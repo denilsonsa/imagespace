@@ -5,3 +5,8 @@ Version 0.2
   avoids recalculations of the same genome, especially if the mutation rate
   is very low
 * There should be less symmetry now
+
+Version 0.3
+* Save and load trees
+* ImageSpace creates 32bit alpha-channel images now
+* Added a new parameter to turn the alpha channel off

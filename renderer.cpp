@@ -3,16 +3,19 @@
 renderer::renderer( QObject * parent , const char * name , int w, int h) : QObject(parent,name), QThread() {
 	tn=NULL;
 	runs_flag=false;
+	alpha=true;
 	x0=0;
 	x1=1;
 	y0=0;
 	y1=1;
 	if (w<1) w=1;
 	if (h<1) h=1;
-	im=QImage(w,h,32);
+	im=QImage(w,h,32);	
 }
 
 renderer::~renderer() { }
+
+void renderer::setAlpha(bool a) { alpha=a; }
 
 void renderer::setTree(treeNode *t) { tn=t; }
 
@@ -30,17 +33,14 @@ void renderer::setPixel(unsigned int w, unsigned int h, D4 &clr) {
 	if (r>255) cout << "R " << r << endl;
 	if (g>255) cout << "G " << g << endl;
 	if (b>255) cout << "B " << b << endl;
-	QRgb c=qRgba(r,g,b,a);
-	/*=a; c=c<<8;
-	c|=r; c=c<<8;
-	c|=g; c=c<<8;
-	c|=b;*/
+	QRgb c=qRgba(r,g,b,a);	
 	im.setPixel(w,h,c);
 }
 
 void renderer::run() {
 	if (tn!=NULL) {
-		im.fill(0x00000000);
+		im.setAlphaBuffer(alpha);
+		im.fill(qRgba(0,0,0,0));		
 		D4 clr;
 		double  sx=(x1-x0)/(double)im.width (),
 			sy=(y1-y0)/(double)im.height();
@@ -55,9 +55,6 @@ void renderer::run() {
 			}
 		}
 	}
-
-	//emit(done());
-
 	runs_flag=false;
 }
 

@@ -87,13 +87,19 @@ class treeNode {											// The treeNode
 			       ~treeNode	();							// Destructor
 
 		treeNode*	copy		();							// Returns a deep copy of this tree
+		void		clear		();							// Delete all subnodes
 		int		mutate		(double,double,int,double);				// Mutate a node and it's subnodes (also, new values for prb, dcy, ord, mprb are transferred) returns number of mutations in tree
 		D4		get		(double,double);					// Get RGBA vector at (x,y)
 		void		setNodeType	(unsigned int);						// Set a treenode's operation type
 		unsigned int	getNodeType	();							// Get a treenode's operation type
+		bool		save		(const char*);						// Save to file
+		bool		load		(const char*);						// Load from file
+
 
 	private:
 		int		createSubnodes	();							// Creates subnodes if not already done so
+		void		save		(ofstream&);						// Save to stream
+		void		load		(ifstream&);						// Load from stream
 
 		unsigned int opType;									// opType, defining the  node's function
 		vector<treeNode*> subnode;								// If opType!=OP_ID, the treeNode will have subnodes
