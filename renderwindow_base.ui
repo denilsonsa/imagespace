@@ -16,12 +16,32 @@
         <string>ImageSpace</string>
     </property>
     <property name="toolTip" stdset="0">
-        <string>Select the image codec here</string>
+        <string></string>
     </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
+        <property name="margin">
+            <number>2</number>
+        </property>
+        <property name="spacing">
+            <number>2</number>
+        </property>
+        <widget class="QGroupBox" row="0" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>displayFrame</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>256</width>
+                    <height>256</height>
+                </size>
+            </property>
+            <property name="title">
+                <string></string>
+            </property>
+        </widget>
         <widget class="QPushButton" row="1" column="2">
             <property name="name">
                 <cstring>saveButton</cstring>
@@ -47,37 +67,42 @@
                 <string>Save image</string>
             </property>
         </widget>
-        <widget class="QGroupBox" row="0" column="0" rowspan="1" colspan="3">
+        <widget class="QPushButton" row="1" column="0">
             <property name="name">
-                <cstring>displayFrame</cstring>
+                <cstring>selectButton</cstring>
             </property>
-            <property name="minimumSize">
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>0</hsizetype>
+                    <vsizetype>7</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="maximumSize">
                 <size>
-                    <width>256</width>
-                    <height>256</height>
+                    <width>32767</width>
+                    <height>25</height>
                 </size>
             </property>
-            <property name="title">
-                <string></string>
+            <property name="text">
+                <string>Select</string>
+            </property>
+            <property name="toolTip" stdset="0">
+                <string>Select this genome</string>
             </property>
         </widget>
-        <spacer row="1" column="0">
+        <widget class="QProgressBar" row="1" column="1">
             <property name="name">
-                <cstring>spacer3</cstring>
+                <cstring>progress</cstring>
             </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
+            <property name="centerIndicator">
+                <bool>true</bool>
             </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
+            <property name="percentageVisible">
+                <bool>false</bool>
             </property>
-            <property name="sizeHint">
-                <size>
-                    <width>100</width>
-                    <height>20</height>
-                </size>
-            </property>
-        </spacer>
+        </widget>
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>

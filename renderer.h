@@ -37,6 +37,7 @@ class renderer : public QObject, public QThread {				// Renderer object
 		void		 requestStop	();
 		void		 setAlpha	(bool);
 		QImage*		 image		();
+		int		 line		();
 
 	signals:		
 		void		 lineDone	(int);
@@ -48,6 +49,7 @@ class renderer : public QObject, public QThread {				// Renderer object
 		double		 x0,y0,x1,y1;
 		bool		 stop_flag, runs_flag, alpha;
 		QMutex		 mutex;
+		int		 line_counter;
 
 };
 #endif

@@ -67,7 +67,7 @@ class renderwindow : public renderwindow_base {
 
 	signals:
 		void	closed		(renderwindow*);
-	
+		void	select		(treeNode*);
 	private:
 		
 		void	closeEvent	(QCloseEvent *);
@@ -83,6 +83,7 @@ class renderwindow : public renderwindow_base {
 		void	doneSlot	();
 		void	timerSlot	();
 		void	saveSlot	();
+		void	selectSlot	();
 };
 
 #endif

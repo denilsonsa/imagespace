@@ -68,6 +68,7 @@ void control::renderSlot() {
 	if ((autoOpen->isChecked()) || (lastRenderWindow==NULL)) {
 		lastRenderWindow=new renderwindow(0);
 		connect(lastRenderWindow,SIGNAL(closed(renderwindow*)),this,SLOT(renderWindowClosed(renderwindow*)));
+		connect(lastRenderWindow,SIGNAL(select(    treeNode*)),this,SLOT(renderWindowSelect(    treeNode*)));
 	}
 	lastRenderWindow->copyTree(selectedTree);
 	lastRenderWindow->setRange(x0->value(),x1->value(),y0->value(),y1->value());
@@ -161,6 +162,13 @@ void control::y1Slot(int i) { if (y0->value()>=i) y0->setValue(i-1); first=true;
 
 void control::renderWindowClosed(renderwindow *ptr) {
 	if (ptr==lastRenderWindow) lastRenderWindow=NULL;
+}
+
+void control::renderWindowSelect(treeNode *tn) {
+	stopRenderers();
+	delete tree[4];
+	tree[4]=tn->copy();
+	selectGenome(4,true);
 }
 
 void control::t1Slot() {									// Timer slots to draw the images

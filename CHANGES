@@ -10,3 +10,8 @@ Version 0.3
 * Save and load trees
 * ImageSpace creates 32bit alpha-channel images now
 * Added a new parameter to turn the alpha channel off
+
+Version 0.4
+* Trees from render windows can be transferred back to the mutation window
+* Trees should be more complex now, a just-root tree should be impossible now
+* Added a progressbar

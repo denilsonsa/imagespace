@@ -43,7 +43,7 @@ void treeNode::clear() {
 }
 
 int treeNode::createSubnodes() {
-	unsigned int nrOfSubnodes=random()%(order+1);
+	unsigned int nrOfSubnodes=(random()%(order-1))+2;
 	if (subnode.size()<nrOfSubnodes) do {
 		subnode.insert(subnode.end(),new treeNode(false,prob*(1.0-decay),decay,order,mprob));
 	} while (subnode.size()<nrOfSubnodes);
@@ -63,7 +63,6 @@ D4 treeNode::get(double x, double y) {
 	if (opType & OP_ID) {
 		v[0]=x+scalar; v[1]=y+scalar; v[2]=x-scalar; v[3]=y-scalar;
 	} else {
-
 		if (opType & OP_MULT) {
 			v[0]=1.0; v[1]=1.0; v[2]=1.0; v[3]=1.0; for (unsigned int i=0;i<subnode.size();++i) v*= subnode[i]->get(x,y);
 		} else

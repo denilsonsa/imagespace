@@ -4,9 +4,10 @@ renderwindow::renderwindow(QWidget *parent, const char *name, WFlags f):renderwi
 	r=new renderer(this);
 	t=NULL;
 
-	connect( r         ,SIGNAL(    done   ()),this,SLOT(    doneSlot   ()));
-	connect(&timer     ,SIGNAL( timeout   ()),this,SLOT(   timerSlot   ()));
-	connect( saveButton,SIGNAL( clicked   ()),this,SLOT(    saveSlot   ()));
+	connect( r           ,SIGNAL(   done()),this,SLOT(  doneSlot()));
+	connect(&timer       ,SIGNAL(timeout()),this,SLOT( timerSlot()));
+	connect( saveButton  ,SIGNAL(clicked()),this,SLOT(  saveSlot()));
+	connect( selectButton,SIGNAL(clicked()),this,SLOT(selectSlot()));
 
 	QBoxLayout *boxLayout=new QBoxLayout(displayFrame,QBoxLayout::Up);
 	boxLayout->setAutoAdd(true);
@@ -62,6 +63,7 @@ void renderwindow::doneSlot() { w->setPixmap(*(r->image())); timer.stop(); }
 void renderwindow::setResolution(int h, int v) {
 	stop();
 	w->resize(h,v);
+	progress->setTotalSteps(v);
 }
 
 void renderwindow::setRange(double x0, double x1, double y0, double y1) {
@@ -82,7 +84,12 @@ void renderwindow::timerSlot() {
 	timer.stop();
 	if (!r->running()) d=true; else d=false;
 	w->setPixmap(*(r->image()));
-	if (!d) timer.start(2000);
+	if (!d) {
+		timer.start(1000);
+		progress->setProgress(r->line());
+	} else {
+		progress->setProgress(0);
+	}
 }
 
 void renderwindow::saveSlot() {
@@ -96,4 +103,8 @@ void renderwindow::saveSlot() {
 void renderwindow::setAlpha(bool a) {
 	r->setAlpha(a);
 	alpha=a;
+}
+
+void renderwindow::selectSlot() {
+	emit(select(t));
 }

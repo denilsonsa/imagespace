@@ -10,7 +10,8 @@ renderer::renderer( QObject * parent , const char * name , int w, int h) : QObje
 	y1=1;
 	if (w<1) w=1;
 	if (h<1) h=1;
-	im=QImage(w,h,32);	
+	im=QImage(w,h,32);
+	line_counter=0;
 }
 
 renderer::~renderer() { }
@@ -24,6 +25,8 @@ void renderer::requestStop() { stop_flag=true; }
 bool renderer::runs() { return(runs_flag); }
 
 QImage* renderer::image() { return(&im); }
+
+int	renderer::line() { return(line_counter); }
 
 void renderer::setPixel(unsigned int w, unsigned int h, D4 &clr) {
 	unsigned char 	r=(unsigned char)(((clr[0]+1.0)/2.0)*255.0),
@@ -47,6 +50,9 @@ void renderer::run() {
 		stop_flag=false;
 		runs_flag=true;
 		for (int h=0;h<im.height();++h) if (!stop_flag) {
+
+			line_counter=h;
+
 			double y=y0+sy*(double)h;
 			for (int w=0;w<im.width();++w) if (!stop_flag) {
 				double x=x0+sx*(double)w;

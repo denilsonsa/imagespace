@@ -7,7 +7,7 @@
     <property name="geometry">
         <rect>
             <x>0</x>
-            <y>0</y>
+            <y>1</y>
             <width>210</width>
             <height>270</height>
         </rect>
@@ -33,7 +33,7 @@
         </size>
     </property>
     <property name="caption">
-        <string>ImageSpace 0.3</string>
+        <string>ImageSpace 0.4</string>
     </property>
     <vbox>
         <property name="name">
@@ -639,7 +639,7 @@
                 <attribute name="title">
                     <string>Options</string>
                 </attribute>
-                <vbox>
+                <grid>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
@@ -649,7 +649,7 @@
                     <property name="spacing">
                         <number>2</number>
                     </property>
-                    <widget class="QGroupBox">
+                    <widget class="QGroupBox" row="0" column="0">
                         <property name="name">
                             <cstring>groupBox1</cstring>
                         </property>
@@ -691,7 +691,7 @@
                             </widget>
                         </hbox>
                     </widget>
-                    <widget class="QGroupBox">
+                    <widget class="QGroupBox" row="1" column="0">
                         <property name="name">
                             <cstring>groupBox1_2</cstring>
                         </property>
@@ -733,7 +733,7 @@
                             </widget>
                         </hbox>
                     </widget>
-                    <widget class="QGroupBox">
+                    <widget class="QGroupBox" row="2" column="0">
                         <property name="name">
                             <cstring>groupBox1_2_2</cstring>
                         </property>
@@ -775,7 +775,7 @@
                             </widget>
                         </hbox>
                     </widget>
-                    <widget class="QCheckBox">
+                    <widget class="QCheckBox" row="3" column="0">
                         <property name="name">
                             <cstring>autoOpen</cstring>
                         </property>
@@ -786,13 +786,12 @@
                             <string>Whether to open new renderers or not</string>
                         </property>
                     </widget>
-                    <widget class="QLabel">
+                    <widget class="QLabel" row="4" column="0">
                         <property name="name">
                             <cstring>textLabel1</cstring>
                         </property>
                         <property name="text">
-                            <string>
-Homepage:
+                            <string>Homepage:
 imagespace.sourceforge.net
 mailto_sigmapi@yahoo.com</string>
                         </property>
@@ -800,24 +799,7 @@ mailto_sigmapi@yahoo.com</string>
                             <set>AlignCenter</set>
                         </property>
                     </widget>
-                    <spacer>
-                        <property name="name">
-                            <cstring>spacer4</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>20</width>
-                                <height>40</height>
-                            </size>
-                        </property>
-                    </spacer>
-                </vbox>
+                </grid>
             </widget>
         </widget>
     </vbox>

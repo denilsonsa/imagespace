@@ -49,52 +49,53 @@ class control : public MainWindow {									// This is the MainWidget
     Q_OBJECT
 
 	public:
-			 control	(QWidget *parent=0, const char *name=0, WFlags f=0);		// Constructor
-			~control	();								// Destructor
+			 control		(QWidget *parent=0, const char *name=0, WFlags f=0);	// Constructor
+			~control		();							// Destructor
 
 	private slots:
-		void	loadSlot	();
-		void	saveSlot	();
-		void	checkDone	();
-		
-		void	g1Slot		();								// If a genome was selected, the buttons call these slots
-		void	g2Slot		();
-		void	g3Slot		();
-		void	g4Slot		();
-		void	g5Slot		();
-		void	g6Slot		();
-		void	g7Slot		();
-		void	g8Slot		();
-		void	g9Slot		();
+		void	loadSlot		();
+		void	saveSlot		();
+		void	checkDone		();
 
-		void	rend1DoneSlot	();
-		void	rend2DoneSlot	();
-		void	rend3DoneSlot	();
-		void	rend4DoneSlot	();
-		void	rend5DoneSlot	();
-		void	rend6DoneSlot	();
-		void	rend7DoneSlot	();
-		void	rend8DoneSlot	();
-		void	rend9DoneSlot	();
-		
-		void	t1Slot		();
-		void	t2Slot		();
-		void	t3Slot		();
-		void	t4Slot		();
-		void	t5Slot		();
-		void	t6Slot		();
-		void	t7Slot		();
-		void	t8Slot		();
-		void	t9Slot		();
+		void	g1Slot			();							// If a genome was selected, the buttons call these slots
+		void	g2Slot			();
+		void	g3Slot			();
+		void	g4Slot			();
+		void	g5Slot			();
+		void	g6Slot			();
+		void	g7Slot			();
+		void	g8Slot			();
+		void	g9Slot			();
 
-		void	x0Slot		(int);
-		void	x1Slot		(int);
-		void	y0Slot		(int);
-		void	y1Slot		(int);
+		void	rend1DoneSlot		();
+		void	rend2DoneSlot		();
+		void	rend3DoneSlot		();
+		void	rend4DoneSlot		();
+		void	rend5DoneSlot		();
+		void	rend6DoneSlot		();
+		void	rend7DoneSlot		();
+		void	rend8DoneSlot		();
+		void	rend9DoneSlot		();
 
-		void	renderSlot	();								// Start a new main renderer
-		void	renderWindowClosed(renderwindow*);
-		void	alphaSlot	(bool);
+		void	t1Slot			();
+		void	t2Slot			();
+		void	t3Slot			();
+		void	t4Slot			();
+		void	t5Slot			();
+		void	t6Slot			();
+		void	t7Slot			();
+		void	t8Slot			();
+		void	t9Slot			();
+
+		void	x0Slot			(int);							// Range slots
+		void	x1Slot			(int);
+		void	y0Slot			(int);
+		void	y1Slot			(int);
+
+		void	renderSlot		();							// Start a new main renderer
+		void	renderWindowClosed	(renderwindow*);					// Tell the main program the renderer is no more
+		void	renderWindowSelect	(treeNode*);						// Transfer a tree from the renderer back to the selector
+		void	alphaSlot		(bool);							// Alpha on or off
 	private:
 	
 		void closeEvent			(QCloseEvent*);
