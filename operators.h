@@ -7,8 +7,10 @@
 
 #include <stdlib.h>											// ANSI C std. functions
 #include <stdio.h>											// ANSI C i/o functions
+#include <math.h>											// FP Math
 #include "stlall.h"											// STL
 
+#define MAXDEPTH 20
 
 using namespace std;											// Standard namespace
 
@@ -79,35 +81,57 @@ class D4 {
 #define OP_PERM13		65536
 #define OP_PERM23		131072
 
+#define OP_PADD01		OP_PERM23*2
+#define OP_PADD02		OP_PADD01*2
+#define OP_PADD03		OP_PADD02*2
+#define OP_PADD10		OP_PADD03*2
+#define OP_PADD12		OP_PADD10*2
+#define OP_PADD13		OP_PADD12*2
+#define OP_PADD20		OP_PADD13*2
+#define OP_PADD21		OP_PADD20*2
+#define OP_PADD23		OP_PADD21*2
+#define OP_PADD30		OP_PADD23*2
+#define OP_PADD31		OP_PADD30*2
+#define OP_PADD32		OP_PADD31*2
 
-class treeNode {											// The treeNode
+#define ALLOP OP_ID | OP_TANH | OP_COS | OP_SIN | OP_GAUSS
+
+/*#ifndef ZERO_MAX
+#define ZERO_MAX 4
+#endif*/
+
+class treeNode {												// The treeNode
 	public:
-				treeNode	(bool empty=false, double prb=1.0, double dcy=0.5, 	// Construct a treeNode having subnodes with probability prb
-			       			 int ord=2, double mprb=0);				// Subsodes have subnodes with probability prb*dcy (Decay dcy should be in ]0;1[)
-			       ~treeNode	();							// Destructor
+					treeNode	(bool empty=false, double prb=1.0, double dcy=0.5, 	// Construct a treeNode having subnodes with probability prb
+			  				 int ord=2, double mprb=0, int dpth=0);			// Subsodes have subnodes with probability prb*dcy (Decay dcy should be in ]0;1[)
+			       	       ~treeNode	();							// Destructor
 
-		treeNode*	copy		();							// Returns a deep copy of this tree
-		void		clear		();							// Delete all subnodes
-		int		mutate		(double,double,int,double);				// Mutate a node and it's subnodes (also, new values for prb, dcy, ord, mprb are transferred) returns number of mutations in tree
-		D4		get		(double,double);					// Get RGBA vector at (x,y)
-		void		setNodeType	(unsigned int);						// Set a treenode's operation type
-		unsigned int	getNodeType	();							// Get a treenode's operation type
-		bool		save		(const char*);						// Save to file
-		bool		load		(const char*);						// Load from file
+		treeNode*		copy		();							// Returns a deep copy of this tree
+		void			clear		();							// Delete all subnodes
+		int			mutate		(double,double,int,double,int dpth=0);			// Mutate a node and it's subnodes (also, new values for prb, dcy, ord, mprb are transferred) returns number of mutations in tree
+		D4			get		(double,double);					// Get RGBA vector at (x,y)
+		void			setNodeType	(unsigned long long);					// Set a treenode's operation type
+		unsigned long long	getNodeType	();							// Get a treenode's operation type
+		void			setOpMask	(unsigned long long);					// Allow or forbid certain operations
+		unsigned long long	getOpMask	();
+		bool			save		(const char*);						// Save to file
+		bool			load		(const char*);						// Load from file
 
 
 	private:
-		int		createSubnodes	();							// Creates subnodes if not already done so
-		void		save		(ofstream&);						// Save to stream
-		void		load		(ifstream&);						// Load from stream
+		int			createSubnodes	();							// Creates subnodes if not already done so
+		void			save		(ofstream&);						// Save to stream
+		void			load		(ifstream&);						// Load from stream
 
-		unsigned int opType;									// opType, defining the  node's function
-		vector<treeNode*> subnode;								// If opType!=OP_ID, the treeNode will have subnodes
-		double	 scalar, 									// A scalar value which is multiplied with the vector
-			 prob, 										// The probability of this treeNode to have subnodes
-			 decay,										// The subnode probability decay
-			 mprob;										// The mutation probability of a subnode
-		int	 order;										// The maximum number of subnodes this node can have
+		unsigned long long opType, ot, opmask;								// opType, defining the  node's function
+		vector<treeNode*> subnode;									// If opType!=OP_ID, the treeNode will have subnodes
+		double	 scalar, 										// A scalar value which is multiplied with the vector
+			 prob, 											// The probability of this treeNode to have subnodes
+			 decay,											// The subnode probability decay
+			 mprob;											// The mutation probability of a subnode
+		int	 order,											// The maximum number of subnodes this node can have
+			 depth;											// The distance from this node to the root node - used to cut trees at MAXDEPTH
+		//double	 zero_x[ZERO_MAX],zero_y[ZERO_MAX];
 };
 
 #endif

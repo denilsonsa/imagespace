@@ -1,808 +1,877 @@
-<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
-<class>MainWindow</class>
-<widget class="QWidget">
-    <property name="name">
-        <cstring>MainWindow</cstring>
-    </property>
-    <property name="geometry">
-        <rect>
-            <x>0</x>
-            <y>1</y>
-            <width>210</width>
-            <height>270</height>
-        </rect>
-    </property>
-    <property name="sizePolicy">
-        <sizepolicy>
-            <hsizetype>0</hsizetype>
-            <vsizetype>0</vsizetype>
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-        </sizepolicy>
-    </property>
-    <property name="minimumSize">
-        <size>
-            <width>210</width>
-            <height>270</height>
-        </size>
-    </property>
-    <property name="maximumSize">
-        <size>
-            <width>210</width>
-            <height>270</height>
-        </size>
-    </property>
-    <property name="caption">
-        <string>ImageSpace 0.4</string>
-    </property>
-    <vbox>
-        <property name="name">
-            <cstring>unnamed</cstring>
-        </property>
-        <property name="margin">
-            <number>2</number>
-        </property>
-        <property name="spacing">
-            <number>2</number>
-        </property>
-        <widget class="QTabWidget">
-            <property name="name">
-                <cstring>tab</cstring>
-            </property>
-            <property name="sizePolicy">
-                <sizepolicy>
-                    <hsizetype>0</hsizetype>
-                    <vsizetype>5</vsizetype>
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                </sizepolicy>
-            </property>
-            <widget class="QWidget">
-                <property name="name">
-                    <cstring>tab</cstring>
-                </property>
-                <attribute name="title">
-                    <string>Select</string>
-                </attribute>
-                <grid>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <property name="margin">
-                        <number>2</number>
-                    </property>
-                    <property name="spacing">
-                        <number>2</number>
-                    </property>
-                    <widget class="QPushButton" row="0" column="0">
-                        <property name="name">
-                            <cstring>g1</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string></string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Mutation #1</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="0" column="1">
-                        <property name="name">
-                            <cstring>g2</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string></string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Mutation #2</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="0" column="2">
-                        <property name="name">
-                            <cstring>g3</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string></string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Mutation #3</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="1" column="0">
-                        <property name="name">
-                            <cstring>g4</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string></string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Mutation #4</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="1" column="1">
-                        <property name="name">
-                            <cstring>g5</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string></string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Selected genome</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="2" column="0">
-                        <property name="name">
-                            <cstring>g7</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string></string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Mutation #6</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="1" column="2">
-                        <property name="name">
-                            <cstring>g6</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string></string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Hutation #5</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="2" column="2">
-                        <property name="name">
-                            <cstring>g9</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string></string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Mutation #8</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="3" column="1">
-                        <property name="name">
-                            <cstring>renderButton</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>25</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string>Render</string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Start rendering</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="2" column="1">
-                        <property name="name">
-                            <cstring>g8</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>64</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string></string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Mutation #7</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="3" column="0">
-                        <property name="name">
-                            <cstring>loadButton</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>25</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string>Load</string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Load from a file</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton" row="3" column="2">
-                        <property name="name">
-                            <cstring>saveButton</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>64</width>
-                                <height>25</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string>Save</string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Save to a file</string>
-                        </property>
-                    </widget>
-                </grid>
-            </widget>
-            <widget class="QWidget">
-                <property name="name">
-                    <cstring>tab</cstring>
-                </property>
-                <attribute name="title">
-                    <string>Render</string>
-                </attribute>
-                <grid>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <property name="margin">
-                        <number>2</number>
-                    </property>
-                    <property name="spacing">
-                        <number>2</number>
-                    </property>
-                    <widget class="QGroupBox" row="0" column="0">
-                        <property name="name">
-                            <cstring>groupBox1_3</cstring>
-                        </property>
-                        <property name="title">
-                            <string>Range</string>
-                        </property>
-                        <grid>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <property name="margin">
-                                <number>2</number>
-                            </property>
-                            <property name="spacing">
-                                <number>2</number>
-                            </property>
-                            <widget class="QSpinBox" row="0" column="0">
-                                <property name="name">
-                                    <cstring>x0</cstring>
-                                </property>
-                                <property name="prefix">
-                                    <string>x0: </string>
-                                </property>
-                                <property name="suffix">
-                                    <string></string>
-                                </property>
-                                <property name="maxValue">
-                                    <number>998</number>
-                                </property>
-                                <property name="minValue">
-                                    <number>-999</number>
-                                </property>
-                                <property name="value">
-                                    <number>-5</number>
-                                </property>
-                                <property name="toolTip" stdset="0">
-                                    <string>Horizontal minimum</string>
-                                </property>
-                            </widget>
-                            <widget class="QSpinBox" row="0" column="1">
-                                <property name="name">
-                                    <cstring>x1</cstring>
-                                </property>
-                                <property name="prefix">
-                                    <string>x1: </string>
-                                </property>
-                                <property name="suffix">
-                                    <string></string>
-                                </property>
-                                <property name="maxValue">
-                                    <number>999</number>
-                                </property>
-                                <property name="minValue">
-                                    <number>-998</number>
-                                </property>
-                                <property name="value">
-                                    <number>5</number>
-                                </property>
-                                <property name="toolTip" stdset="0">
-                                    <string>Horizontal maximum</string>
-                                </property>
-                            </widget>
-                            <widget class="QSpinBox" row="1" column="1">
-                                <property name="name">
-                                    <cstring>y1</cstring>
-                                </property>
-                                <property name="prefix">
-                                    <string>y1: </string>
-                                </property>
-                                <property name="suffix">
-                                    <string></string>
-                                </property>
-                                <property name="maxValue">
-                                    <number>999</number>
-                                </property>
-                                <property name="minValue">
-                                    <number>-998</number>
-                                </property>
-                                <property name="value">
-                                    <number>5</number>
-                                </property>
-                                <property name="toolTip" stdset="0">
-                                    <string>Vertical maximum</string>
-                                </property>
-                            </widget>
-                            <widget class="QSpinBox" row="1" column="0">
-                                <property name="name">
-                                    <cstring>y0</cstring>
-                                </property>
-                                <property name="prefix">
-                                    <string>y0: </string>
-                                </property>
-                                <property name="suffix">
-                                    <string></string>
-                                </property>
-                                <property name="maxValue">
-                                    <number>998</number>
-                                </property>
-                                <property name="minValue">
-                                    <number>-999</number>
-                                </property>
-                                <property name="value">
-                                    <number>-5</number>
-                                </property>
-                                <property name="toolTip" stdset="0">
-                                    <string>Vertical minimum</string>
-                                </property>
-                            </widget>
-                        </grid>
-                    </widget>
-                    <widget class="QGroupBox" row="1" column="0">
-                        <property name="name">
-                            <cstring>groupBox1_3_2</cstring>
-                        </property>
-                        <property name="title">
-                            <string>Resolution</string>
-                        </property>
-                        <grid>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <property name="margin">
-                                <number>2</number>
-                            </property>
-                            <property name="spacing">
-                                <number>2</number>
-                            </property>
-                            <widget class="QSpinBox" row="0" column="0">
-                                <property name="name">
-                                    <cstring>hres</cstring>
-                                </property>
-                                <property name="prefix">
-                                    <string>H: </string>
-                                </property>
-                                <property name="suffix">
-                                    <string></string>
-                                </property>
-                                <property name="maxValue">
-                                    <number>4096</number>
-                                </property>
-                                <property name="minValue">
-                                    <number>64</number>
-                                </property>
-                                <property name="value">
-                                    <number>256</number>
-                                </property>
-                                <property name="toolTip" stdset="0">
-                                    <string>Horizontal</string>
-                                </property>
-                            </widget>
-                            <widget class="QSpinBox" row="0" column="1">
-                                <property name="name">
-                                    <cstring>vres</cstring>
-                                </property>
-                                <property name="prefix">
-                                    <string>V: </string>
-                                </property>
-                                <property name="suffix">
-                                    <string></string>
-                                </property>
-                                <property name="maxValue">
-                                    <number>4096</number>
-                                </property>
-                                <property name="minValue">
-                                    <number>64</number>
-                                </property>
-                                <property name="value">
-                                    <number>256</number>
-                                </property>
-                                <property name="toolTip" stdset="0">
-                                    <string>Vertical</string>
-                                </property>
-                            </widget>
-                        </grid>
-                    </widget>
-                    <widget class="QCheckBox" row="2" column="0">
-                        <property name="name">
-                            <cstring>alpha</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Alpha channel</string>
-                        </property>
-                        <property name="checked">
-                            <bool>false</bool>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Whether the alpha channel should be used or not</string>
-                        </property>
-                    </widget>
-                    <spacer row="3" column="0">
-                        <property name="name">
-                            <cstring>spacer2</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>20</width>
-                                <height>50</height>
-                            </size>
-                        </property>
-                    </spacer>
-                </grid>
-            </widget>
-            <widget class="QWidget">
-                <property name="name">
-                    <cstring>tab</cstring>
-                </property>
-                <attribute name="title">
-                    <string>Options</string>
-                </attribute>
-                <grid>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <property name="margin">
-                        <number>2</number>
-                    </property>
-                    <property name="spacing">
-                        <number>2</number>
-                    </property>
-                    <widget class="QGroupBox" row="0" column="0">
-                        <property name="name">
-                            <cstring>groupBox1</cstring>
-                        </property>
-                        <property name="title">
-                            <string>Subnodes</string>
-                        </property>
-                        <hbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <property name="margin">
-                                <number>2</number>
-                            </property>
-                            <property name="spacing">
-                                <number>2</number>
-                            </property>
-                            <widget class="QSpinBox">
-                                <property name="name">
-                                    <cstring>decay</cstring>
-                                </property>
-                                <property name="prefix">
-                                    <string>Subnode Prob. Decay: </string>
-                                </property>
-                                <property name="suffix">
-                                    <string>%</string>
-                                </property>
-                                <property name="maxValue">
-                                    <number>99</number>
-                                </property>
-                                <property name="minValue">
-                                    <number>20</number>
-                                </property>
-                                <property name="value">
-                                    <number>20</number>
-                                </property>
-                                <property name="toolTip" stdset="0">
-                                    <string>Low values increase the syntax tree depth</string>
-                                </property>
-                            </widget>
-                        </hbox>
-                    </widget>
-                    <widget class="QGroupBox" row="1" column="0">
-                        <property name="name">
-                            <cstring>groupBox1_2</cstring>
-                        </property>
-                        <property name="title">
-                            <string>Maximum Number Of Subnodes</string>
-                        </property>
-                        <hbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <property name="margin">
-                                <number>2</number>
-                            </property>
-                            <property name="spacing">
-                                <number>2</number>
-                            </property>
-                            <widget class="QSpinBox">
-                                <property name="name">
-                                    <cstring>maxSubnodes</cstring>
-                                </property>
-                                <property name="prefix">
-                                    <string></string>
-                                </property>
-                                <property name="suffix">
-                                    <string></string>
-                                </property>
-                                <property name="maxValue">
-                                    <number>50</number>
-                                </property>
-                                <property name="minValue">
-                                    <number>2</number>
-                                </property>
-                                <property name="value">
-                                    <number>3</number>
-                                </property>
-                                <property name="toolTip" stdset="0">
-                                    <string>Higher values increase the image complexity</string>
-                                </property>
-                            </widget>
-                        </hbox>
-                    </widget>
-                    <widget class="QGroupBox" row="2" column="0">
-                        <property name="name">
-                            <cstring>groupBox1_2_2</cstring>
-                        </property>
-                        <property name="title">
-                            <string>Mutation Probability</string>
-                        </property>
-                        <hbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <property name="margin">
-                                <number>2</number>
-                            </property>
-                            <property name="spacing">
-                                <number>2</number>
-                            </property>
-                            <widget class="QSpinBox">
-                                <property name="name">
-                                    <cstring>mutation</cstring>
-                                </property>
-                                <property name="prefix">
-                                    <string></string>
-                                </property>
-                                <property name="suffix">
-                                    <string>%</string>
-                                </property>
-                                <property name="maxValue">
-                                    <number>100</number>
-                                </property>
-                                <property name="minValue">
-                                    <number>1</number>
-                                </property>
-                                <property name="value">
-                                    <number>30</number>
-                                </property>
-                                <property name="toolTip" stdset="0">
-                                    <string>The probability with which a node is mutated</string>
-                                </property>
-                            </widget>
-                        </hbox>
-                    </widget>
-                    <widget class="QCheckBox" row="3" column="0">
-                        <property name="name">
-                            <cstring>autoOpen</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Open new renderers</string>
-                        </property>
-                        <property name="toolTip" stdset="0">
-                            <string>Whether to open new renderers or not</string>
-                        </property>
-                    </widget>
-                    <widget class="QLabel" row="4" column="0">
-                        <property name="name">
-                            <cstring>textLabel1</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Homepage:
-imagespace.sourceforge.net
-mailto_sigmapi@yahoo.com</string>
-                        </property>
-                        <property name="alignment">
-                            <set>AlignCenter</set>
-                        </property>
-                    </widget>
-                </grid>
-            </widget>
+<ui version="4.0" >
+ <author></author>
+ <comment></comment>
+ <exportmacro></exportmacro>
+ <class>gui</class>
+ <widget class="QWidget" name="gui" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>296</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy>
+    <hsizetype>1</hsizetype>
+    <vsizetype>1</vsizetype>
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>280</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>ImageSpace</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>8</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="QTabWidget" name="tabWidget" >
+     <widget class="QWidget" name="tab" >
+      <attribute name="title" >
+       <string>Select</string>
+      </attribute>
+      <layout class="QGridLayout" >
+       <property name="margin" >
+        <number>8</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item row="0" column="0" >
+        <widget class="QFrame" name="g1f" >
+         <property name="minimumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="frameShape" >
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
         </widget>
-    </vbox>
-</widget>
-<layoutdefaults spacing="6" margin="11"/>
-</UI>
+       </item>
+       <item row="1" column="1" >
+        <widget class="QFrame" name="g5f" >
+         <property name="minimumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="frameShape" >
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" >
+        <widget class="QFrame" name="g2f" >
+         <property name="minimumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="frameShape" >
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" >
+        <widget class="QPushButton" name="renderButton" >
+         <property name="sizePolicy" >
+          <sizepolicy>
+           <hsizetype>7</hsizetype>
+           <vsizetype>7</vsizetype>
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="toolTip" >
+          <string>Start rendering</string>
+         </property>
+         <property name="text" >
+          <string>Render</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" >
+        <widget class="QPushButton" name="loadButton" >
+         <property name="sizePolicy" >
+          <sizepolicy>
+           <hsizetype>7</hsizetype>
+           <vsizetype>7</vsizetype>
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="toolTip" >
+          <string>Load from a file</string>
+         </property>
+         <property name="text" >
+          <string>Load</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2" >
+        <widget class="QFrame" name="g3f" >
+         <property name="minimumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="frameShape" >
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" >
+        <widget class="QFrame" name="g4f" >
+         <property name="minimumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="frameShape" >
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2" >
+        <widget class="QFrame" name="g6f" >
+         <property name="minimumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="frameShape" >
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" >
+        <widget class="QFrame" name="g7f" >
+         <property name="minimumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="frameShape" >
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" >
+        <widget class="QFrame" name="g8f" >
+         <property name="minimumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="frameShape" >
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2" >
+        <widget class="QFrame" name="g9f" >
+         <property name="minimumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>72</height>
+          </size>
+         </property>
+         <property name="frameShape" >
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2" >
+        <widget class="QPushButton" name="saveButton" >
+         <property name="sizePolicy" >
+          <sizepolicy>
+           <hsizetype>7</hsizetype>
+           <vsizetype>7</vsizetype>
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>72</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="toolTip" >
+          <string>Save to a file</string>
+         </property>
+         <property name="text" >
+          <string>Save</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab" >
+      <attribute name="title" >
+       <string>Render</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <property name="margin" >
+        <number>8</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="groupBox" >
+         <property name="title" >
+          <string>Range</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>8</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="1" column="1" >
+           <widget class="QSpinBox" name="y1" >
+            <property name="toolTip" >
+             <string>Vertical maximum</string>
+            </property>
+            <property name="suffix" >
+             <string/>
+            </property>
+            <property name="prefix" >
+             <string>y1: </string>
+            </property>
+            <property name="maximum" >
+             <number>999</number>
+            </property>
+            <property name="minimum" >
+             <number>-998</number>
+            </property>
+            <property name="value" >
+             <number>5</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" >
+           <widget class="QSpinBox" name="x1" >
+            <property name="toolTip" >
+             <string>Horizontal maximum</string>
+            </property>
+            <property name="suffix" >
+             <string/>
+            </property>
+            <property name="prefix" >
+             <string>x1: </string>
+            </property>
+            <property name="maximum" >
+             <number>999</number>
+            </property>
+            <property name="minimum" >
+             <number>-998</number>
+            </property>
+            <property name="value" >
+             <number>5</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QSpinBox" name="y0" >
+            <property name="toolTip" >
+             <string>Vertical minimum</string>
+            </property>
+            <property name="suffix" >
+             <string/>
+            </property>
+            <property name="prefix" >
+             <string>y0: </string>
+            </property>
+            <property name="maximum" >
+             <number>998</number>
+            </property>
+            <property name="minimum" >
+             <number>-999</number>
+            </property>
+            <property name="value" >
+             <number>-5</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QSpinBox" name="x0" >
+            <property name="toolTip" >
+             <string>Horizontal minimum</string>
+            </property>
+            <property name="suffix" >
+             <string/>
+            </property>
+            <property name="prefix" >
+             <string>x0: </string>
+            </property>
+            <property name="maximum" >
+             <number>998</number>
+            </property>
+            <property name="minimum" >
+             <number>-999</number>
+            </property>
+            <property name="value" >
+             <number>-5</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_2" >
+         <property name="title" >
+          <string>Resolution</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>8</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="1" >
+           <widget class="QSpinBox" name="vres" >
+            <property name="toolTip" >
+             <string>Vertical</string>
+            </property>
+            <property name="suffix" >
+             <string/>
+            </property>
+            <property name="prefix" >
+             <string>V: </string>
+            </property>
+            <property name="maximum" >
+             <number>4096</number>
+            </property>
+            <property name="minimum" >
+             <number>64</number>
+            </property>
+            <property name="value" >
+             <number>256</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QSpinBox" name="hres" >
+            <property name="toolTip" >
+             <string>Horizontal</string>
+            </property>
+            <property name="suffix" >
+             <string/>
+            </property>
+            <property name="prefix" >
+             <string>H: </string>
+            </property>
+            <property name="maximum" >
+             <number>4096</number>
+            </property>
+            <property name="minimum" >
+             <number>64</number>
+            </property>
+            <property name="value" >
+             <number>256</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="alpha" >
+         <property name="toolTip" >
+          <string>Whether the alpha channel should be used or not</string>
+         </property>
+         <property name="text" >
+          <string>Alpha channel</string>
+         </property>
+         <property name="checked" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab" >
+      <attribute name="title" >
+       <string>Math</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <property name="margin" >
+        <number>8</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QTabWidget" name="tabWidget_2" >
+         <widget class="QWidget" name="tab" >
+          <attribute name="title" >
+           <string>Squashing</string>
+          </attribute>
+          <layout class="QVBoxLayout" >
+           <property name="margin" >
+            <number>8</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QCheckBox" name="op_tanh" >
+             <property name="text" >
+              <string>Tanh</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_sin" >
+             <property name="text" >
+              <string>Sin</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_cos" >
+             <property name="text" >
+              <string>Cos</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_gauss" >
+             <property name="text" >
+              <string>Gaussian</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" >
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab" >
+          <attribute name="title" >
+           <string>Operations</string>
+          </attribute>
+          <layout class="QVBoxLayout" >
+           <property name="margin" >
+            <number>8</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QCheckBox" name="op_sum" >
+             <property name="text" >
+              <string>Sum</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_prod" >
+             <property name="text" >
+              <string>Product</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_qprod" >
+             <property name="text" >
+              <string>Quaternion Product</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_sh0" >
+             <property name="text" >
+              <string>Shift Red</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_sh1" >
+             <property name="text" >
+              <string>Shift Green</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_sh2" >
+             <property name="text" >
+              <string>Shift Blue</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_sh3" >
+             <property name="text" >
+              <string>Shift Alpha</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" >
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab" >
+          <attribute name="title" >
+           <string>Permutations</string>
+          </attribute>
+          <layout class="QVBoxLayout" >
+           <property name="margin" >
+            <number>8</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QCheckBox" name="op_perm01" >
+             <property name="text" >
+              <string>Permutate Red/Green</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_perm02" >
+             <property name="text" >
+              <string>Permutate Red/Blue</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_perm03" >
+             <property name="text" >
+              <string>Permutate Red/Alpha</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_perm12" >
+             <property name="text" >
+              <string>Permutate Green/Blue</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_perm13" >
+             <property name="text" >
+              <string>Permutate Green/Alpha</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="op_perm23" >
+             <property name="text" >
+              <string>Permutate Blue/Alpha</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" >
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab" >
+      <attribute name="title" >
+       <string>Options</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <property name="margin" >
+        <number>8</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="groupBox_3" >
+         <property name="title" >
+          <string>Subnodes</string>
+         </property>
+         <layout class="QVBoxLayout" >
+          <property name="margin" >
+           <number>8</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QSpinBox" name="decay" >
+            <property name="toolTip" >
+             <string>Low values increase the syntax tree depth</string>
+            </property>
+            <property name="suffix" >
+             <string>%</string>
+            </property>
+            <property name="prefix" >
+             <string>Subnode Prob. Decay: </string>
+            </property>
+            <property name="maximum" >
+             <number>99</number>
+            </property>
+            <property name="minimum" >
+             <number>20</number>
+            </property>
+            <property name="value" >
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="maxSubnodes" >
+            <property name="toolTip" >
+             <string>Higher values increase the image complexity</string>
+            </property>
+            <property name="suffix" >
+             <string/>
+            </property>
+            <property name="prefix" >
+             <string>Max. #of Subnodes: </string>
+            </property>
+            <property name="maximum" >
+             <number>50</number>
+            </property>
+            <property name="minimum" >
+             <number>2</number>
+            </property>
+            <property name="value" >
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_3_2" >
+         <property name="title" >
+          <string>Mutation Probability</string>
+         </property>
+         <layout class="QVBoxLayout" >
+          <property name="margin" >
+           <number>8</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QSpinBox" name="mutation" >
+            <property name="toolTip" >
+             <string>The probability with which a node is mutated</string>
+            </property>
+            <property name="suffix" >
+             <string>%</string>
+            </property>
+            <property name="prefix" >
+             <string/>
+            </property>
+            <property name="maximum" >
+             <number>100</number>
+            </property>
+            <property name="minimum" >
+             <number>1</number>
+            </property>
+            <property name="value" >
+             <number>30</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="autoOpen" >
+         <property name="toolTip" >
+          <string>Whether to open new renderers or not</string>
+         </property>
+         <property name="text" >
+          <string>Open new renderers</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="textLabel1" >
+         <property name="text" >
+          <string>Homepage:
+imagespace.sourceforge.net
+info@subsymbolics.com</string>
+         </property>
+         <property name="alignment" >
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <pixmapfunction></pixmapfunction>
+ <resources/>
+ <connections/>
+</ui>

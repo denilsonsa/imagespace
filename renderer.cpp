@@ -1,6 +1,6 @@
 #include "renderer.h"
 
-renderer::renderer( QObject * parent , const char * name , int w, int h) : QObject(parent,name), QThread() {
+renderer::renderer(QObject *parent , const char * name , int w, int h) : QThread() {
 	tn=NULL;
 	runs_flag=false;
 	alpha=true;
@@ -8,15 +8,22 @@ renderer::renderer( QObject * parent , const char * name , int w, int h) : QObje
 	x1=1;
 	y0=0;
 	y1=1;
-	if (w<1) w=1;
-	if (h<1) h=1;
-	im=QImage(w,h,32);
+	setResolution(w,h);
+	im=QImage(w,h,QImage::Format_ARGB32);
 	line_counter=0;
+	opmask=~0;
 }
 
 renderer::~renderer() { }
 
+unsigned long long& renderer::opMask() { return(opmask); }
+
 void renderer::setAlpha(bool a) { alpha=a; }
+
+void renderer::setResolution(int w, int h) {
+	width=w;
+	height=h;
+}
 
 void renderer::setTree(treeNode *t) { tn=t; }
 
@@ -32,18 +39,25 @@ void renderer::setPixel(unsigned int w, unsigned int h, D4 &clr) {
 	unsigned char 	r=(unsigned char)(((clr[0]+1.0)/2.0)*255.0),
 			g=(unsigned char)(((clr[1]+1.0)/2.0)*255.0),
 			b=(unsigned char)(((clr[2]+1.0)/2.0)*255.0),
-			a=(unsigned char)(((clr[3]+1.0)/2.0)*255.0);
-	if (r>255) cout << "R " << r << endl;
-	if (g>255) cout << "G " << g << endl;
-	if (b>255) cout << "B " << b << endl;
-	QRgb c=qRgba(r,g,b,a);	
-	im.setPixel(w,h,c);
+			a;
+	if (alpha) {
+		a=(unsigned char)(((clr[3]+1.0)/2.0)*255.0);
+		QRgb c=qRgba(r,g,b,a);	
+		im.setPixel(w,h,c);
+	} else {
+		QRgb c=qRgb(r,g,b);	
+		im.setPixel(w,h,c);
+	}
 }
 
 void renderer::run() {
-	if (tn!=NULL) {
-		im.setAlphaBuffer(alpha);
-		im.fill(qRgba(0,0,0,0));		
+	if (tn!=NULL) {		
+		tn->setOpMask(opmask);
+
+		if (alpha)
+			{ im=QImage(width,height,QImage::Format_ARGB32); im.fill(qRgba(0,0,0,0)); }
+		else	{ im=QImage(width,height,QImage::Format_RGB32);  im.fill(qRgb (0,0,0));   }
+
 		D4 clr;
 		double  sx=(x1-x0)/(double)im.width (),
 			sy=(y1-y0)/(double)im.height();
@@ -64,10 +78,6 @@ void renderer::run() {
 	runs_flag=false;
 }
 
-void renderer::setResolution(int width, int height) {
-	im=QImage(width,height,32);
-}
-
 bool renderer::setRange(double xmin, double xmax, double ymin, double ymax) {
 	if ((xmin<xmax) && (ymin<ymax)) {
 		x0=xmin;
@@ -78,5 +88,3 @@ bool renderer::setRange(double xmin, double xmax, double ymin, double ymax) {
 	}
 	return(false);
 }
-
-

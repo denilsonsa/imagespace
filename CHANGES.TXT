@@ -1,0 +1,31 @@
+Version 0.2
+* Removed a bug which caused ImageSpace to prefer trees with gray background
+* Removed a bug in the multithreading system, causing a crash
+* Mutation guarantee: All offspring images have at least one mutation - this
+  avoids recalculations of the same genome, especially if the mutation rate
+  is very low
+* There should be less symmetry now
+
+Version 0.3
+* Save and load trees
+* ImageSpace creates 32bit alpha-channel images now
+* Added a new parameter to turn the alpha channel off
+
+Version 0.4
+* Trees from render windows can be transferred back to the mutation window
+* Trees should be more complex now, a just-root tree should be impossible now
+* Added a progressbar
+
+Version 0.5
+* Imagespace uses the QT4 API now - it can be compiled on Windows and OSX for
+  free, both systems have a QT4 QPL Release
+* Added a Splash screen
+* Built to look good on QT/Mac. Since OSX has problems with icons inside of
+  buttons, the selector window has been changed slightly.
+  On Linux, it almost looks the same.
+* The gaussian bell with output ]0;1] has been replaced with a bell of ]-1;1]
+* The functions will be less monotonous now, since the probability of
+  sinus, tanh and gauss are the same now.
+* The settings are automatically loaded at application start and saved at
+  application end, using QSettings to integrate with the platform
+* Images can be saved in JPG format

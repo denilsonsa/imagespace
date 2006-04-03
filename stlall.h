@@ -1,29 +1,33 @@
-// In Borland C++, the standard namespace is not declared at the same position as in GCC.
-// Therefore, this file has to be loaded BEFORE switching to std namespace
+// The std namespace headers should be included BEFORE declaring the namespace
+// Old compilers may have different names for some of the headers, like
+// <strstream> instead of <sstream>
+// Furthermore, these headers should NOT be used together with their
+// no-namespace variants (*.h) since this will create problems on some
+// compilers (like Microsoft Visual C++)
 
-//#include <algorithm>
 //#include <bitset>
-#include <deque>
-#include <fstream>
 //#include <functional>
-
-#include <iomanip>
-#include <iostream>
-#include <istream>
-#include <iterator>
+//#include <iomanip>
 //#include <limits>
-#include <list>
 //#include <locale>
-#include <map>
 //#include <memory>
 //#include <numeric>
-#include <queue>
-#include <set>
-//#include <sstream>
 //#include <stack>
 //#include <stdexcept>
-#include <string>
-#include <strstream>
 //#include <utility>
+
+#include <string>		// C++ string
+
+#include <algorithm>		// STL
+#include <iterator>
 #include <vector>
+#include <deque>
+#include <list>
+#include <map>
+#include <set>
+				// Streams
+#include <iostream>
+#include <istream>
+#include <fstream>
+#include <sstream>
 
