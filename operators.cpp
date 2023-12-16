@@ -209,7 +209,7 @@ void treeNode::load(ifstream &ifs) {
 	ifs >> subnodes;
 	ifs >> scalar;
 	ifs >> opType;
-	for (unsigned int i=0;i<subnodes;++i) {
+	for (int i=0;i<subnodes;++i) {
 		subnode.insert(subnode.end(),new treeNode(true,0,0,0,0,0));
 		subnode[i]->load(ifs);
 	}
