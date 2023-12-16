@@ -42,8 +42,8 @@
     <number>8</number>
    </property>
    <item>
-    <widget class="QTabWidget" name="tabWidget">
-     <widget class="QWidget" name="tab">
+    <widget class="QTabWidget" name="tabWidget_main">
+     <widget class="QWidget" name="tab_select">
       <attribute name="title">
        <string>Select</string>
       </attribute>
@@ -329,7 +329,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="tab_render">
       <attribute name="title">
        <string>Render</string>
       </attribute>
@@ -557,7 +557,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="tab_math">
       <attribute name="title">
        <string>Math</string>
       </attribute>
@@ -578,8 +578,8 @@
         <number>8</number>
        </property>
        <item>
-        <widget class="QTabWidget" name="tabWidget_2">
-         <widget class="QWidget" name="tab">
+        <widget class="QTabWidget" name="tabWidget_math">
+         <widget class="QWidget" name="tab_squashing">
           <attribute name="title">
            <string>Squashing</string>
           </attribute>
@@ -642,7 +642,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tab">
+         <widget class="QWidget" name="tab_operations">
           <attribute name="title">
            <string>Operations</string>
           </attribute>
@@ -726,7 +726,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tab">
+         <widget class="QWidget" name="tab_permutations">
           <attribute name="title">
            <string>Permutations</string>
           </attribute>
@@ -807,7 +807,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="tab_options">
       <attribute name="title">
        <string>Options</string>
       </attribute>
