@@ -954,9 +954,7 @@
        <item>
         <widget class="QLabel" name="textLabel1">
          <property name="text">
-          <string>Homepage:
-imagespace.sourceforge.net
-info@subsymbolics.com</string>
+          <string>https://github.com/denilsonsa/imagespace</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
