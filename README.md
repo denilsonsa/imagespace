@@ -60,6 +60,7 @@ Do you want to contribute to this project? Here's some work that needs to be don
 * [ ] Resolve the deprecated use of [QLabel::pixmap()](https://doc.qt.io/qt-5/qlabel-obsolete.html#pixmap).
 * [ ] Resolve the compiler warnings (about unused parameters).
 * [ ] Port from Qt5 to Qt6.
+* [ ] Create GitHub actions to automatically build binaries for Linux, Windows and Mac. [install-qt-action](https://github.com/marketplace/actions/install-qt) can be helpful.
 
 Please also consider adopting this project.
 
