@@ -1,6 +1,8 @@
 #include "gui.h"				// Control object header
 #include "stlall.h"
 
+#include <stdlib.h>
+
 #include <QApplication>				// QT
 #include <QObject>
 #include <QPushButton>

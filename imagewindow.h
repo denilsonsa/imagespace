@@ -1,8 +1,6 @@
 #ifndef IMAGEWINDOW_H
 #define IMAGEWINDOW_H
 
-#include <stdlib.h>				// ANSI C   std. functions
-#include <stdio.h>				// ANSI C   i/o functions
 #include "stlall.h"				// STL
 
 #include <ui_imagewindow.h>

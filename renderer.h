@@ -6,8 +6,6 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include <stdio.h>								// STD and STL classes
-#include <stdlib.h>
 #include "stlall.h"
 
 #include <QObject>								// QT classes

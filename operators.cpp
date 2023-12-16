@@ -1,5 +1,7 @@
 #include "operators.h"
 
+#include <stdlib.h>
+
 treeNode::treeNode(bool empty, double prb, double dcy, int ord, double mprb, int dpth) {
 	if (!empty) mutate(prb,dcy,ord,mprb,dpth); else {
 		prob =prb;

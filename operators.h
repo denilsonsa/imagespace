@@ -5,8 +5,6 @@
 #ifndef OPERATORS_H
 #define OPERATORS_H
 
-#include <stdlib.h>											// ANSI C std. functions
-#include <stdio.h>											// ANSI C i/o functions
 #include <math.h>											// FP Math
 #include "stlall.h"											// STL
 

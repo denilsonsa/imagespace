@@ -8,8 +8,6 @@
 
 using namespace std;								// Standard namespace
 
-#include <stdlib.h>								// ANSI C   std. functions
-#include <stdio.h>								// ANSI C   i/o functions
 #include "stlall.h"
 #include <ui_gui.h>								// The GUI headers created by QDesigner
 #include "imagewindow.h"
