@@ -53,6 +53,16 @@ In 2023, Denilson Sá Maia imported the code into git and fixed it to make it
 compile and run again. However, he has no intention to keep developing this
 code. If anyone else wants to adopt this project, go ahead!
 
+## Future work
+
+Do you want to contribute to this project? Here's some work that needs to be done:
+
+* [ ] Resolve the deprecated use of [QLabel::pixmap()](https://doc.qt.io/qt-5/qlabel-obsolete.html#pixmap).
+* [ ] Resolve the compiler warnings (about unused parameters).
+* [ ] Port from Qt5 to Qt6.
+
+Please also consider adopting this project.
+
 ## Related links
 
 * <https://imagespace.sourceforge.net/> - Original homepage (old, not updated since 2006).
