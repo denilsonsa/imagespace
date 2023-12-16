@@ -29,8 +29,9 @@ int main(int argc, char **argv) {
 	s->showMessage(msg,Qt::AlignRight|Qt::AlignBottom,QColor(255,255,255));
 	QTimer *t=new QTimer(s);
 	QObject::connect(t,SIGNAL(timeout()),s,SLOT(close()));
-	QObject::connect(t,SIGNAL(timeout()),w,SLOT(show ()));
+	//QObject::connect(t,SIGNAL(timeout()),w,SLOT(show ()));
 	t->start(2000);
 	s->show();
+	w->show();
 	return app.exec();
 };
