@@ -68,8 +68,8 @@ class imagewindow : public QWidget, private Ui::imagewindow {
 	Q_OBJECT
 
 	public:
-					imagewindow		(QWidget *parent=0, Qt::WFlags f=0);
-					imagewindow		(QImage &im, QWidget *parent=0, Qt::WFlags f=0);
+					imagewindow		(QWidget *parent=0, Qt::WindowFlags f=Qt::WindowFlags());
+					imagewindow		(QImage &im, QWidget *parent=0, Qt::WindowFlags f=Qt::WindowFlags());
 				       ~imagewindow		();
 		bool			isEmpty			() { if (w) return(false); return(true); }
 		void			setImage		(QImage);

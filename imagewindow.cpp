@@ -1,10 +1,10 @@
 #include "imagewindow.h"
 
-imagewindow::imagewindow(QWidget *parent, Qt::WFlags f):QWidget(parent,f) {
+imagewindow::imagewindow(QWidget *parent, Qt::WindowFlags f):QWidget(parent,f) {
 	setup();
 }
 
-imagewindow::imagewindow(QImage &im, QWidget *parent, Qt::WFlags f):QWidget(parent,f) {
+imagewindow::imagewindow(QImage &im, QWidget *parent, Qt::WindowFlags f):QWidget(parent,f) {
 	setup();
 	setImage(im);
 }

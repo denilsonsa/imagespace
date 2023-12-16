@@ -1,6 +1,6 @@
 #include "gui.h"
 
-gui::gui(QWidget *parent, Qt::WFlags f):QWidget(parent,f) {
+gui::gui(QWidget *parent, Qt::WindowFlags f):QWidget(parent,f) {
 
 	setupUi(this);
 
@@ -136,14 +136,14 @@ void gui::saveSlot() {
 		QFileInfo fi(s);
 		QDir d=fi.dir();
 		QString s2=fi.dir().absolutePath()+"/"+fi.baseName()+".tree";
-		tree[4]->save(s2.toAscii().constData());
+		tree[4]->save(s2.toLatin1().constData());
 	} 
 }
 void gui::loadSlot() {
 	QString s=QFileDialog::getOpenFileName(this,"Choose a file" );
 	if (s!="") {
 		stopRenderers();
-		tree[4]->load(s.toAscii().constData());
+		tree[4]->load(s.toLatin1().constData());
 		opMask=tree[4]->getOpMask();
 		displayOpMask();
 		selectGenome(4,true);
@@ -366,8 +366,8 @@ void gui::saveImageSlot(QImage &im, QString format, int compression) {
 		QDir d=fi.dir();
 		QString s2=d.absolutePath()+"/"+fi.baseName();
 		if (format=="PNG") s2+=".png"; else s2+=".jpg";
-		cout << "SAVING " << s2.toAscii().constData() << endl;
-		im.save(s2,format.toAscii().constData(),100-compression);
+		cout << "SAVING " << s2.toLatin1().constData() << endl;
+		im.save(s2,format.toLatin1().constData(),100-compression);
 		cout << "COMPRESSION " << compression << endl;
 	} 
 }

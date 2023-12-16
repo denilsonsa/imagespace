@@ -53,7 +53,7 @@ using namespace std;								// Standard namespace
 class imLabel : public QLabel {
 	Q_OBJECT
 	public:
-			imLabel		(QWidget *parent=0, Qt::WFlags f=0):QLabel(parent,f) {
+			imLabel		(QWidget *parent=0, Qt::WindowFlags f=Qt::WindowFlags()):QLabel(parent,f) {
 				setAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 			} 
 		void	mousePressEvent	(QMouseEvent *e) {
@@ -69,7 +69,7 @@ class gui : public QWidget, private Ui::gui {
     Q_OBJECT
 
 	public:
-			 gui		(QWidget *parent=0, Qt::WFlags f=0);	// Constructor
+			 gui		(QWidget *parent=0, Qt::WindowFlags f=Qt::WindowFlags());	// Constructor
 			~gui		();					// Destructor
 
 	private slots:
@@ -155,7 +155,6 @@ class gui : public QWidget, private Ui::gui {
 		unsigned long long		opMask;
 		imLabel				*g1,*g2,*g3,*g4,*g5,*g6,*g7,*g8,*g9;
 		QFileDialog			fd1,fd2,fd3;
-		vector<treeNode[9]>		history;
 };
 
 #endif

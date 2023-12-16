@@ -12,3 +12,4 @@ CONFIG	+= qt warn_on release static
 RESOURCES +=resources.qrc
 DEFINES += 
 LANGUAGE = C++
+QT += widgets
