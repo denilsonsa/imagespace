@@ -29,3 +29,8 @@ Version 0.5
 * The settings are automatically loaded at application start and saved at
   application end, using QSettings to integrate with the platform
 * Images can be saved in JPG format
+
+Version "git"
+* Imported the code into git, maintaining the history of the release tarballs.
+* Ported to Qt5.
+* There may be more changes not listed here. Please check the git log.
